@@ -14,8 +14,6 @@ import android.widget.ToggleButton;
 
 
 
-
-
 public class MainActivity extends AppCompatActivity {
 
     int counter=0;
