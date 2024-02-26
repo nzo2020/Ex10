@@ -18,43 +18,35 @@ import android.widget.ToggleButton;
 
 public class MainActivity extends AppCompatActivity {
 
-    int counter=0;
     Button button2;
-    ToggleButton toggleButton;
-    Switch switch1;
+    ToggleButton tB;
+    Switch s;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        toggleButton = (ToggleButton) findViewById(R.id.toggleButton);
-        switch1 = (Switch) findViewById(R.id.switch1);
+        tB = (ToggleButton) findViewById(R.id.tB);
+        s = (Switch) findViewById(R.id.s);
         button2 = (Button) findViewById(R.id.button2);
     }
     public void clicked(View view){
-        counter=counter+1;
-        switch (counter){
-            case 1:
-                switch1.setChecked(true);
-                toggleButton.setChecked(false);
-                getWindow().getDecorView().setBackgroundColor(Color.GREEN);
-                break;
-            case 2:
-                switch1.setChecked(false);
-                toggleButton.setChecked(true);
-                getWindow().getDecorView().setBackgroundColor(Color.YELLOW);
-                break;
-            case 3:
-                switch1.setChecked(false);
-                toggleButton.setChecked(false);
-                getWindow().getDecorView().setBackgroundColor(Color.BLUE);
-                break;
-            case 4:
-                switch1.setChecked(true);
-                toggleButton.setChecked(true);
-                getWindow().getDecorView().setBackgroundColor(Color.RED);
-                break;
+        if (s.isChecked() && tB.isChecked()){
+            getWindow().getDecorView().setBackgroundColor(Color.YELLOW);
+
+        }
+        if (s.isChecked() && tB.isChecked()==false) {
+            getWindow().getDecorView().setBackgroundColor(Color.RED);
+
+        }
+        if (s.isChecked()==false && tB.isChecked()) {
+            getWindow().getDecorView().setBackgroundColor(Color.BLUE);
+
+        }
+        if (s.isChecked()==false && tB.isChecked()==false){
+            getWindow().getDecorView().setBackgroundColor(Color.GREEN);
+
         }
 
     }
